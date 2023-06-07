@@ -13,6 +13,8 @@ void main() {
         colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.onPrimaryContainer,
+          // this also affects to our text large color, so this will be most important.
+          // try it changing titleLarge => color to Colors.red
           foregroundColor: kColorScheme.primaryContainer,
         ),
         cardTheme: CardTheme().copyWith(
@@ -27,9 +29,9 @@ void main() {
         ),
         textTheme: ThemeData().textTheme.copyWith(
               titleLarge: TextStyle(
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
                 color: kColorScheme.onSecondaryContainer,
-                fontSize: 14,
+                fontSize: 16,
               ),
             ),
       ),
