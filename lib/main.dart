@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart'; // exposes functionality to look screen orientation
 
 import 'package:expense_tracker/widgets/expenses.dart';
 
@@ -12,6 +13,11 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() {
+  // WidgetsFlutterBinding
+  //     .ensureInitialized(); // intended to device orientation works as expected
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((value) {
   runApp(
     MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
@@ -60,4 +66,5 @@ void main() {
       home: const Expenses(),
     ),
   );
+  // });
 }
