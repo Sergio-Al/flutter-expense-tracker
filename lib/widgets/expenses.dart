@@ -71,6 +71,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'),
     );
@@ -92,15 +94,35 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Toolbar with the add button
-          Chart(expenses: _registeredExpenses),
-          Expanded(
-            child: mainContent,
-          ),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                // Toolbar with the add button
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainContent,
+                ),
+              ],
+            )
+          : Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 36,
+                vertical: 12
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Chart(
+                      expenses: _registeredExpenses,
+                    ),
+                  ),
+                  // Toolbar with the add button
+                  Expanded(
+                    child: mainContent,
+                  ),
+                ],
+              ),
+            ),
     );
   }
 }
