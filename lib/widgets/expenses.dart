@@ -107,7 +107,7 @@ class _ExpensesState extends State<Expenses> {
           : Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 36,
-                vertical: 12
+                vertical: 12,
               ),
               child: Row(
                 children: [
